@@ -1,318 +1,595 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>STAR SELECTION | Gents & Children Wear</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        :root {
-            --gold: #D4AF37;
-            --dark-navy: #0A192F;
-            --white: #FFFFFF;
-            --light-gray: #F4F4F4;
-            --black: #111111;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Star Selection — premium gents and children's wear.">
+<meta name="theme-color" content="#0a192f">
+<title>STAR SELECTION | Gents & Children Wear</title>
 
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Montserrat', sans-serif; }
-        body { background-color: var(--white); color: var(--black); scroll-behavior: smooth; }
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://cdnjs.cloudflare.com">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
-        /* --- Premium Navigation --- */
-        nav {
-            background: var(--dark-navy);
-            padding: 20px 8%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            border-bottom: 2px solid var(--gold);
-        }
+<style>
+:root{
+  --gold:#d4af37;
+  --gold-dark:#b88e16;
+  --navy:#071426;
+  --navy-2:#0d213d;
+  --white:#fff;
+  --off:#f7f7f5;
+  --muted:#777;
+  --black:#111;
+  --border:#e8e8e8;
+  --success:#25d366;
+  --danger:#d93025;
+  --shadow:0 16px 45px rgba(7,20,38,.12);
+  --radius:16px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Montserrat,sans-serif;background:var(--white);color:var(--black);line-height:1.5}
+button,input,select{font:inherit}
+button{cursor:pointer}
+a{text-decoration:none;color:inherit}
 
-        .logo { 
-            font-family: 'Cinzel', serif;
-            font-size: 28px;
-            font-weight: 700;
-            color: var(--gold);
-            letter-spacing: 3px;
-        }
+nav{
+  position:sticky;top:0;z-index:1000;
+  display:flex;align-items:center;justify-content:space-between;
+  min-height:76px;padding:14px clamp(18px,6vw,90px);
+  background:rgba(7,20,38,.96);backdrop-filter:blur(12px);
+  border-bottom:1px solid rgba(212,175,55,.55);
+}
+.logo{font:700 25px Cinzel,serif;letter-spacing:3px;color:var(--gold);white-space:nowrap}
+.nav-right{display:flex;align-items:center;gap:14px}
+.staff-btn,.icon-btn{
+  border:1px solid rgba(255,255,255,.25);background:transparent;color:#fff;
+  min-height:42px;padding:0 14px;border-radius:10px;transition:.25s
+}
+.staff-btn{font-size:11px;letter-spacing:1px;text-transform:uppercase}
+.staff-btn:hover,.icon-btn:hover{border-color:var(--gold);color:var(--gold)}
+.icon-btn{width:44px;padding:0;font-size:18px;position:relative}
+#cart-count{
+  position:absolute;top:-6px;right:-5px;min-width:19px;height:19px;padding:0 5px;
+  display:grid;place-items:center;border-radius:999px;background:var(--gold);color:#111;
+  font-size:10px;font-weight:800
+}
 
-        .nav-right { display: flex; align-items: center; gap: 30px; }
-        .staff-btn { 
-            font-size: 11px; 
-            text-transform: uppercase; 
-            letter-spacing: 1px; 
-            color: rgba(255,255,255,0.6); 
-            cursor: pointer;
-            border: 1px solid rgba(255,255,255,0.3);
-            padding: 5px 10px;
-            transition: 0.3s;
-        }
-        .staff-btn:hover { color: var(--gold); border-color: var(--gold); }
+.hero{
+  min-height:72vh;padding:80px 20px;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;color:#fff;
+  background:
+    linear-gradient(90deg,rgba(0,0,0,.72),rgba(0,0,0,.32)),
+    url('https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=1800&q=85') center/cover;
+}
+.eyebrow{font-size:12px;letter-spacing:4px;color:var(--gold);font-weight:700}
+.hero h1{font:600 clamp(2.6rem,7vw,5.4rem) Cinzel,serif;letter-spacing:7px;margin:12px 0}
+.hero-sub{font-size:clamp(.9rem,2vw,1.15rem);letter-spacing:4px}
+.hero-actions{display:flex;gap:12px;margin-top:28px;flex-wrap:wrap;justify-content:center}
+.hero-btn{
+  padding:13px 24px;border-radius:999px;border:1px solid var(--gold);
+  background:var(--gold);color:#111;font-weight:800
+}
+.hero-btn.alt{background:transparent;color:#fff}
 
-        .cart-icon { position: relative; cursor: pointer; color: var(--white); font-size: 22px; }
-        #cart-count { 
-            position: absolute; top: -10px; right: -10px; 
-            background: var(--gold); color: var(--black); 
-            font-size: 11px; font-weight: 700;
-            padding: 2px 6px; border-radius: 50%; 
-        }
+#admin-panel{
+  display:none;margin:28px auto;padding:24px;max-width:1200px;
+  background:var(--off);border:1px solid var(--border);border-left:5px solid var(--gold);
+  border-radius:var(--radius);box-shadow:var(--shadow)
+}
+.admin-head{display:flex;justify-content:space-between;gap:15px;align-items:center;margin-bottom:18px}
+.admin-head h2{font:600 22px Cinzel,serif}
+.admin-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}
+.admin-grid input,.admin-grid select{
+  width:100%;padding:12px;border:1px solid #ddd;border-radius:10px;background:#fff;outline:none
+}
+.admin-grid input:focus,.admin-grid select:focus{border-color:var(--gold)}
+.btn-gold,.btn-dark{
+  border:0;border-radius:10px;padding:12px 16px;font-weight:800
+}
+.btn-gold{background:var(--gold);color:#111}
+.btn-dark{background:var(--navy);color:#fff}
+.admin-note{font-size:11px;color:var(--muted);margin-top:10px}
 
-        /* --- Luxury Hero Section --- */
-        .hero {
-            height: 70vh;
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
-                        url('https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=1350&q=80');
-            background-size: cover;
-            background-position: center;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            color: var(--white);
-        }
+.section-title{text-align:center;margin:62px 0 34px;font:600 clamp(1.8rem,4vw,2.6rem) Cinzel,serif}
+.container{max-width:1200px;margin:auto;padding:0 20px 70px}
+.toolbar{display:flex;gap:10px;justify-content:space-between;align-items:center;margin-bottom:24px;flex-wrap:wrap}
+.filters{display:flex;gap:8px;flex-wrap:wrap}
+.filter{
+  border:1px solid var(--border);background:#fff;padding:9px 14px;border-radius:999px;
+  font-size:12px;font-weight:700
+}
+.filter.active,.filter:hover{background:var(--navy);color:#fff;border-color:var(--navy)}
+.search{position:relative}
+.search input{width:min(300px,80vw);padding:11px 38px 11px 14px;border:1px solid var(--border);border-radius:999px;outline:none}
+.search i{position:absolute;right:14px;top:12px;color:#999}
 
-        .hero h1 { font-family: 'Cinzel', serif; font-size: 4rem; margin-bottom: 10px; letter-spacing: 5px; }
-        .hero p { font-size: 1.2rem; font-weight: 300; letter-spacing: 2px; color: var(--gold); }
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+.product-card{
+  position:relative;background:#fff;border:1px solid var(--border);border-radius:var(--radius);
+  overflow:hidden;transition:.3s;box-shadow:0 5px 20px rgba(0,0,0,.04)
+}
+.product-card:hover{transform:translateY(-7px);box-shadow:var(--shadow)}
+.img-container{height:360px;background:#f1f1f1;overflow:hidden;position:relative}
+.product-card img{width:100%;height:100%;object-fit:cover;display:block;transition:.5s}
+.product-card:hover img{transform:scale(1.05)}
+.badge{
+  position:absolute;top:12px;right:12px;background:var(--gold);color:#111;
+  padding:5px 9px;border-radius:999px;font-size:9px;font-weight:800;letter-spacing:.7px
+}
+.delete-btn{
+  position:absolute;top:10px;left:10px;z-index:5;border:0;background:var(--danger);color:#fff;
+  padding:7px 9px;border-radius:8px;font-size:11px
+}
+.card-info{padding:17px}
+.card-info h3{font-size:14px;text-transform:uppercase;letter-spacing:.8px;margin-bottom:5px}
+.category{font-size:10px;color:#999;text-transform:uppercase;letter-spacing:1px}
+.price{display:block;color:var(--gold-dark);font-size:19px;font-weight:800;margin:12px 0}
+.add-to-bag{
+  width:100%;padding:11px;border:0;border-radius:9px;background:var(--navy);color:#fff;
+  text-transform:uppercase;letter-spacing:1.2px;font-size:11px;font-weight:700
+}
+.add-to-bag:hover{background:var(--gold);color:#111}
+.empty{grid-column:1/-1;text-align:center;padding:70px 15px;color:#888}
 
-        /* --- Admin Dashboard --- */
-        #admin-panel {
-            display: none;
-            background: var(--light-gray);
-            padding: 30px;
-            margin: 20px 8%;
-            border-left: 5px solid var(--gold);
-            border-radius: 4px;
-        }
-        .admin-inputs input, .admin-inputs select {
-            padding: 12px; margin: 5px; border: 1px solid #ddd; border-radius: 4px; outline: none;
-        }
-        .btn-gold { background: var(--gold); color: var(--black); font-weight: 700; border: none; padding: 12px 25px; cursor: pointer; text-transform: uppercase; }
+.footer{background:var(--navy);color:#fff;padding:55px 20px;text-align:center}
+.footer-logo{font:600 28px Cinzel,serif;color:var(--gold);letter-spacing:3px}
+.address{font-size:13px;opacity:.8;line-height:2;margin:18px 0}
+.socials{display:flex;justify-content:center;gap:10px;margin:18px 0}
+.socials a{width:38px;height:38px;border:1px solid rgba(255,255,255,.2);border-radius:50%;display:grid;place-items:center}
+.socials a:hover{color:var(--gold);border-color:var(--gold)}
 
-        /* --- Product Grid --- */
-        .section-title { text-align: center; margin: 60px 0 40px; font-family: 'Cinzel', serif; font-size: 2.5rem; }
-        
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px 60px; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 40px; }
+.overlay{
+  position:fixed;inset:0;background:rgba(0,0,0,.48);opacity:0;visibility:hidden;transition:.25s;z-index:1800
+}
+.overlay.active{opacity:1;visibility:visible}
+#cart-sidebar{
+  position:fixed;right:-460px;top:0;width:min(430px,100%);height:100%;z-index:2000;
+  background:#fff;box-shadow:-15px 0 55px rgba(0,0,0,.22);transition:.35s;
+  display:flex;flex-direction:column
+}
+#cart-sidebar.active{right:0}
+.cart-header{padding:22px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center}
+.cart-title{font:600 22px Cinzel,serif}
+.close-btn{border:0;background:none;font-size:22px}
+#cart-items{padding:20px;overflow:auto;flex:1}
+.cart-item{display:grid;grid-template-columns:1fr auto;gap:8px;padding:13px 0;border-bottom:1px solid #eee}
+.cart-name{font-size:13px;font-weight:700}
+.cart-price{font-weight:800}
+.cart-actions{grid-column:1/-1;display:flex;align-items:center;gap:8px}
+.qty-btn{width:28px;height:28px;border:1px solid #ddd;background:#fff;border-radius:6px}
+.remove-btn{margin-left:auto;border:0;background:none;color:var(--danger);font-size:11px}
+.empty-cart{text-align:center;color:#999;padding:50px 10px}
+.cart-footer{padding:20px;border-top:1px solid var(--border)}
+.total-row{display:flex;justify-content:space-between;font-size:20px;font-weight:800;margin-bottom:15px}
+.checkout-btn{
+  width:100%;padding:15px;border:0;border-radius:10px;background:var(--success);color:#fff;
+  font-weight:800;display:flex;justify-content:center;gap:9px;align-items:center
+}
 
-        .product-card {
-            background: var(--white);
-            transition: 0.4s;
-            position: relative;
-            border: 1px solid #eee;
-        }
-        .product-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
-        
-        .img-container { overflow: hidden; height: 350px; }
-        .product-card img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
-        .product-card:hover img { transform: scale(1.1); }
+.toast{
+  position:fixed;left:50%;bottom:24px;transform:translate(-50%,20px);z-index:3000;
+  background:var(--navy);color:#fff;padding:12px 17px;border-radius:10px;
+  opacity:0;pointer-events:none;transition:.25s;font-size:12px;box-shadow:var(--shadow)
+}
+.toast.show{opacity:1;transform:translate(-50%,0)}
 
-        .card-info { padding: 20px; text-align: center; }
-        .card-info h3 { font-size: 16px; margin-bottom: 10px; letter-spacing: 1px; text-transform: uppercase; }
-        .price { color: var(--gold); font-weight: 700; font-size: 20px; margin-bottom: 20px; display: block; }
-        
-        .add-to-bag {
-            background: var(--black); color: var(--white);
-            border: none; padding: 12px 0; width: 100%;
-            text-transform: uppercase; letter-spacing: 2px;
-            cursor: pointer; font-size: 12px; transition: 0.3s;
-        }
-        .add-to-bag:hover { background: var(--gold); color: var(--black); }
-
-        /* --- Footer/Contact --- */
-        .footer { background: var(--dark-navy); color: white; padding: 60px 8%; text-align: center; }
-        .footer-logo { font-family: 'Cinzel', serif; color: var(--gold); font-size: 30px; margin-bottom: 20px; }
-        .address { font-size: 14px; opacity: 0.8; line-height: 2; margin-bottom: 30px; }
-
-        /* --- Cart Sidebar --- */
-        #cart-sidebar {
-            position: fixed; right: -100%; top: 0; width: 400px; height: 100%;
-            background: var(--white); z-index: 2000; transition: 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
-            padding: 40px; box-shadow: -10px 0 50px rgba(0,0,0,0.2);
-        }
-        #cart-sidebar.active { right: 0; }
-        .cart-title { font-family: 'Cinzel', serif; font-size: 24px; border-bottom: 1px solid #eee; padding-bottom: 20px; }
-        .checkout-btn {
-            background: #25D366; color: white; width: 100%; padding: 18px;
-            border: none; font-weight: 700; cursor: pointer; font-size: 16px; margin-top: 30px;
-            display: flex; justify-content: center; align-items: center; gap: 10px;
-        }
-
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 2.5rem; }
-            #cart-sidebar { width: 100%; }
-        }
-    </style>
+@media(max-width:1000px){.grid{grid-template-columns:repeat(3,1fr)}.admin-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:700px){
+  nav{padding:12px 16px}.logo{font-size:19px;letter-spacing:2px}.staff-btn{display:none}
+  .hero{min-height:68vh}.hero h1{letter-spacing:4px}.grid{grid-template-columns:repeat(2,1fr);gap:12px}
+  .img-container{height:270px}.card-info{padding:13px}.admin-grid{grid-template-columns:1fr}
+  .toolbar{align-items:stretch}.search input{width:100%}.search{width:100%}
+}
+@media(max-width:430px){.grid{grid-template-columns:1fr}.img-container{height:360px}.hero-actions{width:100%}.hero-btn{width:100%}}
+</style>
 </head>
-<body>
 
+<body>
 <nav>
-    <div class="logo">ELITE LUXE</div>
-    <div class="nav-right">
-        <span class="staff-btn" onclick="adminAuth()">Staff Access</span>
-        <div class="cart-icon" onclick="toggleCart()">
-            <i class="fa fa-shopping-bag"></i>
-            <span id="cart-count">0</span>
-        </div>
-    </div>
+  <a class="logo" href="#">STAR SELECTION</a>
+  <div class="nav-right">
+    <button class="staff-btn" onclick="adminAuth()"><i class="fa-solid fa-lock"></i> Staff Access</button>
+    <button class="icon-btn" aria-label="Open shopping bag" onclick="toggleCart()">
+      <i class="fa-solid fa-bag-shopping"></i><span id="cart-count">0</span>
+    </button>
+  </div>
 </nav>
 
 <section class="hero">
-    <p>ESTABLISHED 2026</p>
-    <h1>GENTS & KIDS</h1>
-    <p>THE ART OF DRESSING WELL</p>
+  <div class="eyebrow">ESTABLISHED 2026</div>
+  <h1>GENTS & KIDS</h1>
+  <div class="hero-sub">THE ART OF DRESSING WELL</div>
+  <div class="hero-actions">
+    <a href="#collection" class="hero-btn">SHOP COLLECTION</a>
+    <a href="#contact" class="hero-btn alt">CONTACT US</a>
+  </div>
 </section>
 
-<div id="admin-panel">
-    <h2 style="font-family:'Cinzel'; margin-bottom:20px;">Catalogue Management</h2>
-    <div class="admin-inputs">
-        <input type="text" id="pName" placeholder="Product Title">
-        <input type="number" id="pPrice" placeholder="Price (₹)">
-        <select id="pCat">
-            <option value="Shirt">Shirt</option>
-            <option value="Pant">Pant</option>
-            <option value="Coty">Coty</option>
-            <option value="Kids">Children Wear</option>
-        </select>
-        <input type="text" id="pImg" placeholder="Direct Image Link (URL)">
-        <button class="btn-gold" onclick="addProduct()">Publish Item</button>
-        <button onclick="document.getElementById('admin-panel').style.display='none'" style="background:none; border:none; cursor:pointer; margin-left:15px;">Hide Panel</button>
-    </div>
-</div>
+<section id="admin-panel">
+  <div class="admin-head">
+    <h2>Catalogue Management</h2>
+    <button class="btn-dark" onclick="hideAdmin()">Hide Panel</button>
+  </div>
+  <div class="admin-grid">
+    <input id="pName" type="text" maxlength="80" placeholder="Product title">
+    <input id="pPrice" type="number" min="0" step="1" placeholder="Price (₹)">
+    <select id="pCat">
+      <option value="Shirt">Shirt</option>
+      <option value="Pant">Pant</option>
+      <option value="Coty">Coty</option>
+      <option value="Kids">Children Wear</option>
+    </select>
+    <input id="pImg" type="url" placeholder="Image URL">
+    <button class="btn-gold" onclick="addProduct()">Publish Item</button>
+  </div>
+  <div class="admin-note">Products are stored in this browser using localStorage. For a real multi-device store, connect this catalogue to Firebase or another backend.</div>
+</section>
 
-<h2 class="section-title">New Collection</h2>
-<div class="container">
-    <div class="grid" id="productDisplay">
-        </div>
-</div>
-
-<footer class="footer">
-    <div class="footer-logo">ELITE LUXE</div>
-    <div class="address">
-        <p>📍 Shop No. 12, Heritage Square, Main Market, Ahmedabad</p>
-        <p>📞 Order Inquiry: +91 91XXXXXXXXXX</p>
-        <p>⏰ Open Daily: 10:00 AM - 09:30 PM</p>
+<main id="collection">
+  <h2 class="section-title">New Collection</h2>
+  <div class="container">
+    <div class="toolbar">
+      <div class="filters" id="filters"></div>
+      <div class="search">
+        <input id="searchInput" type="search" placeholder="Search products..." oninput="renderProducts()">
+        <i class="fa-solid fa-magnifying-glass"></i>
+      </div>
     </div>
-    <div style="font-size: 12px; opacity: 0.5;">&copy; 2026 Elite Luxe Garments. All Rights Reserved.</div>
+    <div class="grid" id="productDisplay"></div>
+  </div>
+</main>
+
+<footer class="footer" id="contact">
+  <div class="footer-logo">STAR SELECTION</div>
+  <div class="address">
+    <p><i class="fa-solid fa-location-dot"></i> Shop No. 12, Heritage Square, Main Market, Ahmedabad</p>
+    <p><i class="fa-solid fa-phone"></i> Order Inquiry: +91 91XXXXXXXXXX</p>
+    <p><i class="fa-regular fa-clock"></i> Open Daily: 10:00 AM – 09:30 PM</p>
+  </div>
+  <div class="socials">
+    <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+    <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+    <a href="#" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+  </div>
+  <div style="font-size:11px;opacity:.5">&copy; 2026 Star Selection Garments. All Rights Reserved.</div>
 </footer>
 
-<div id="cart-sidebar">
-    <div style="display:flex; justify-content:space-between; align-items:center;">
-        <h2 class="cart-title">YOUR BAG</h2>
-        <i class="fa fa-times" onclick="toggleCart()" style="cursor:pointer; font-size:20px;"></i>
-    </div>
-    <div id="cart-items" style="margin: 30px 0; overflow-y:auto; max-height:60vh;">
-        </div>
-    <div style="border-top: 1px solid #eee; padding-top: 20px;">
-        <div style="display:flex; justify-content:space-between; font-weight:700; font-size:20px;">
-            <span>Total:</span><span>₹<span id="total-price">0</span></span>
-        </div>
-        <button class="checkout-btn" onclick="checkout()">
-            <i class="fab fa-whatsapp"></i> PLACE ORDER VIA WHATSAPP
-        </button>
-    </div>
-</div>
+<div class="overlay" id="overlay" onclick="toggleCart(false)"></div>
+
+<aside id="cart-sidebar" aria-label="Shopping bag">
+  <div class="cart-header">
+    <h2 class="cart-title">YOUR BAG</h2>
+    <button class="close-btn" aria-label="Close cart" onclick="toggleCart(false)"><i class="fa-solid fa-xmark"></i></button>
+  </div>
+  <div id="cart-items"></div>
+  <div class="cart-footer">
+    <div class="total-row"><span>Total</span><span id="total-price">₹0</span></div>
+    <button class="checkout-btn" onclick="checkout()">
+      <i class="fa-brands fa-whatsapp"></i> PLACE ORDER VIA WHATSAPP
+    </button>
+  </div>
+</aside>
+
+<div class="toast" id="toast"></div>
 
 <script>
-    let products = JSON.parse(localStorage.getItem('eliteLuxeData')) || [];
-    let cart = [];
-    let isStaff = false;
+'use strict';
 
+/* =========================
+   STORE CONFIGURATION
+========================= */
+const CONFIG = {
+  storeName: 'STAR SELECTION',
+  whatsapp: '91XXXXXXXXXX', // Replace with your real WhatsApp number
+  storageKey: 'starSelectionProductsV2'
+};
+
+/* =========================
+   STATE
+========================= */
+let products = loadProducts();
+let cart = loadCart();
+let isStaff = false;
+let activeCategory = 'All';
+
+/* =========================
+   HELPERS
+========================= */
+const $ = id => document.getElementById(id);
+
+function escapeHTML(value) {
+  return String(value ?? '').replace(/[&<>"']/g, char => ({
+    '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'
+  }[char]));
+}
+
+function money(value) {
+  return new Intl.NumberFormat('en-IN', {
+    style:'currency', currency:'INR', maximumFractionDigits:0
+  }).format(Number(value) || 0);
+}
+
+function loadProducts() {
+  try {
+    const saved = JSON.parse(localStorage.getItem(CONFIG.storageKey));
+    return Array.isArray(saved) ? saved : [];
+  } catch {
+    return [];
+  }
+}
+
+function saveProducts() {
+  localStorage.setItem(CONFIG.storageKey, JSON.stringify(products));
+}
+
+function loadCart() {
+  try {
+    const saved = JSON.parse(sessionStorage.getItem('starSelectionCart'));
+    return Array.isArray(saved) ? saved : [];
+  } catch {
+    return [];
+  }
+}
+
+function saveCart() {
+  sessionStorage.setItem('starSelectionCart', JSON.stringify(cart));
+}
+
+function showToast(message) {
+  const toast = $('toast');
+  toast.textContent = message;
+  toast.classList.add('show');
+  clearTimeout(showToast.timer);
+  showToast.timer = setTimeout(() => toast.classList.remove('show'), 2200);
+}
+
+/* =========================
+   STAFF PANEL
+========================= */
+function adminAuth() {
+  const pin = prompt('Enter Management PIN:');
+  if (pin === '786786') {
+    isStaff = true;
+    $('admin-panel').style.display = 'block';
+    renderFilters();
     renderProducts();
+    showToast('Staff mode enabled');
+  } else if (pin !== null) {
+    showToast('Unauthorized access');
+  }
+}
 
-    function adminAuth() {
-        let pin = prompt("Enter Management PIN:");
-        if(pin === "786786") {
-            isStaff = true;
-            document.getElementById('admin-panel').style.display = 'block';
-            renderProducts();
-        } else { alert("Unauthorized Access."); }
-    }
+function hideAdmin() {
+  isStaff = false;
+  $('admin-panel').style.display = 'none';
+  renderProducts();
+}
 
-    function addProduct() {
-        let name = document.getElementById('pName').value;
-        let price = document.getElementById('pPrice').value;
-        let cat = document.getElementById('pCat').value;
-        let img = document.getElementById('pImg').value;
+/* =========================
+   PRODUCTS
+========================= */
+function addProduct() {
+  const name = $('pName').value.trim();
+  const price = Number($('pPrice').value);
+  const cat = $('pCat').value;
+  const img = $('pImg').value.trim();
 
-        if(!name || !price || !img) return alert("Fill all fields.");
+  if (!name || !Number.isFinite(price) || price < 0 || !img) {
+    showToast('Please enter valid product details');
+    return;
+  }
 
-        products.push({ id: Date.now(), name, price, cat, img });
-        localStorage.setItem('eliteLuxeData', JSON.stringify(products));
-        renderProducts();
-        alert("Product added to catalogue.");
-    }
+  try {
+    new URL(img);
+  } catch {
+    showToast('Please enter a valid image URL');
+    return;
+  }
 
-    function deleteProduct(id) {
-        if(confirm("Delete this item?")) {
-            products = products.filter(p => p.id !== id);
-            localStorage.setItem('eliteLuxeData', JSON.stringify(products));
-            renderProducts();
-        }
-    }
+  products.unshift({
+    id: crypto.randomUUID ? crypto.randomUUID() : String(Date.now()),
+    name, price, cat, img
+  });
 
-    function renderProducts() {
-        const display = document.getElementById('productDisplay');
-        display.innerHTML = "";
-        
-        if(products.length === 0) {
-            display.innerHTML = "<p style='text-align:center; grid-column: 1/-1;'>No products in catalogue yet.</p>";
-        }
+  saveProducts();
+  $('pName').value = '';
+  $('pPrice').value = '';
+  $('pImg').value = '';
 
-        products.forEach(p => {
-            display.innerHTML += `
-                <div class="product-card">
-                    ${isStaff ? `<button onclick="deleteProduct(${p.id})" style="position:absolute; top:10px; left:10px; background:red; color:white; border:none; z-index:10; padding:5px; cursor:pointer;">Delete</button>` : ''}
-                    <div class="img-container">
-                        <img src="${p.img}" alt="${p.name}">
-                    </div>
-                    <div class="card-info">
-                        <h3>${p.name}</h3>
-                        <p style="font-size:12px; color:#888; margin-bottom:10px;">Category: ${p.cat}</p>
-                        <span class="price">₹${p.price}</span>
-                        <button class="add-to-bag" onclick="addToCart('${p.name}', ${p.price})">Add to Bag</button>
-                    </div>
-                </div>
-            `;
-        });
-    }
+  renderFilters();
+  renderProducts();
+  showToast('Product published successfully');
+}
 
-    function addToCart(name, price) {
-        cart.push({name, price});
-        updateCartUI();
-        toggleCart(); // Show cart when item added
-    }
+function deleteProduct(id) {
+  if (!confirm('Delete this product?')) return;
+  products = products.filter(product => product.id !== id);
+  saveProducts();
+  cart = cart.filter(item => products.some(p => p.id === item.id));
+  saveCart();
+  renderProducts();
+  updateCartUI();
+  showToast('Product deleted');
+}
 
-    function updateCartUI() {
-        document.getElementById('cart-count').innerText = cart.length;
-        const list = document.getElementById('cart-items');
-        let total = 0;
-        list.innerHTML = "";
-        cart.forEach(item => {
-            total += parseInt(item.price);
-            list.innerHTML += `
-                <div style="display:flex; justify-content:space-between; margin-bottom:15px; border-bottom:1px solid #f9f9f9; padding-bottom:10px;">
-                    <span style="font-size:14px;">${item.name}</span>
-                    <span style="font-weight:600;">₹${item.price}</span>
-                </div>`;
-        });
-        document.getElementById('total-price').innerText = total;
-    }
+function renderFilters() {
+  const categories = ['All', ...new Set(products.map(p => p.cat).filter(Boolean))];
+  $('filters').innerHTML = categories.map(cat => `
+    <button class="filter ${activeCategory === cat ? 'active' : ''}"
+      onclick="setCategory('${escapeHTML(cat)}')">${escapeHTML(cat)}</button>
+  `).join('');
+}
 
-    function toggleCart() { document.getElementById('cart-sidebar').classList.toggle('active'); }
+function setCategory(category) {
+  activeCategory = category;
+  renderFilters();
+  renderProducts();
+}
 
-    function checkout() {
-        if(cart.length === 0) return alert("Your bag is empty!");
-        let phone = "91XXXXXXXXXX"; // Change to your number
-        let msg = "*PREMIUM ORDER - ELITE LUXE*%0a------------------------------%0a";
-        cart.forEach(i => { msg += `• ${i.name} - ₹${i.price}%0a`; });
-        msg += `------------------------------%0a*GRAND TOTAL: ₹${document.getElementById('total-price').innerText}*%0a%0a_Please process my order._`;
-        window.open(`https://wa.me/${phone}?text=${msg}`, '_blank');
-    }
+function renderProducts() {
+  const display = $('productDisplay');
+  const query = $('searchInput').value.trim().toLowerCase();
+
+  const filtered = products.filter(p => {
+    const categoryMatch = activeCategory === 'All' || p.cat === activeCategory;
+    const searchMatch = !query ||
+      String(p.name).toLowerCase().includes(query) ||
+      String(p.cat).toLowerCase().includes(query);
+    return categoryMatch && searchMatch;
+  });
+
+  if (!filtered.length) {
+    display.innerHTML = `
+      <div class="empty">
+        <i class="fa-solid fa-box-open" style="font-size:34px;margin-bottom:12px"></i>
+        <p>${products.length ? 'No products match your search.' : 'No products in catalogue yet.'}</p>
+      </div>`;
+    return;
+  }
+
+  display.innerHTML = filtered.map(p => `
+    <article class="product-card">
+      ${isStaff ? `<button class="delete-btn" onclick="deleteProduct('${escapeHTML(p.id)}')">
+        <i class="fa-solid fa-trash"></i> Delete
+      </button>` : ''}
+      <div class="img-container">
+        <img src="${escapeHTML(p.img)}" alt="${escapeHTML(p.name)}" loading="lazy"
+          onerror="this.src='https://placehold.co/700x700/f1f1f1/777?text=Image+Unavailable'">
+        <span class="badge">NEW</span>
+      </div>
+      <div class="card-info">
+        <h3>${escapeHTML(p.name)}</h3>
+        <div class="category">${escapeHTML(p.cat)}</div>
+        <span class="price">${money(p.price)}</span>
+        <button class="add-to-bag" onclick="addToCart('${escapeHTML(p.id)}')">
+          Add to Bag
+        </button>
+      </div>
+    </article>
+  `).join('');
+}
+
+/* =========================
+   CART
+========================= */
+function addToCart(productId) {
+  const product = products.find(p => p.id === productId);
+  if (!product) return;
+
+  const existing = cart.find(item => item.id === productId);
+  if (existing) existing.qty += 1;
+  else cart.push({id:product.id, name:product.name, price:Number(product.price), qty:1});
+
+  saveCart();
+  updateCartUI();
+  toggleCart(true);
+  showToast(`${product.name} added to bag`);
+}
+
+function changeQty(productId, amount) {
+  const item = cart.find(i => i.id === productId);
+  if (!item) return;
+
+  item.qty += amount;
+  if (item.qty <= 0) cart = cart.filter(i => i.id !== productId);
+
+  saveCart();
+  updateCartUI();
+}
+
+function removeFromCart(productId) {
+  cart = cart.filter(i => i.id !== productId);
+  saveCart();
+  updateCartUI();
+}
+
+function updateCartUI() {
+  const count = cart.reduce((sum, item) => sum + item.qty, 0);
+  const total = cart.reduce((sum, item) => sum + item.price * item.qty, 0);
+
+  $('cart-count').textContent = count;
+  $('total-price').textContent = money(total);
+
+  if (!cart.length) {
+    $('cart-items').innerHTML = `
+      <div class="empty-cart">
+        <i class="fa-solid fa-bag-shopping" style="font-size:34px;margin-bottom:12px"></i>
+        <p>Your bag is empty.</p>
+      </div>`;
+    return;
+  }
+
+  $('cart-items').innerHTML = cart.map(item => `
+    <div class="cart-item">
+      <div class="cart-name">${escapeHTML(item.name)}</div>
+      <div class="cart-price">${money(item.price * item.qty)}</div>
+      <div class="cart-actions">
+        <button class="qty-btn" onclick="changeQty('${escapeHTML(item.id)}',-1)">−</button>
+        <strong>${item.qty}</strong>
+        <button class="qty-btn" onclick="changeQty('${escapeHTML(item.id)}',1)">+</button>
+        <span style="font-size:11px;color:#888">${money(item.price)} each</span>
+        <button class="remove-btn" onclick="removeFromCart('${escapeHTML(item.id)}')">REMOVE</button>
+      </div>
+    </div>
+  `).join('');
+}
+
+function toggleCart(force) {
+  const sidebar = $('cart-sidebar');
+  const overlay = $('overlay');
+  const active = typeof force === 'boolean' ? force : !sidebar.classList.contains('active');
+
+  sidebar.classList.toggle('active', active);
+  overlay.classList.toggle('active', active);
+  document.body.style.overflow = active ? 'hidden' : '';
+}
+
+/* =========================
+   WHATSAPP CHECKOUT
+========================= */
+function checkout() {
+  if (!cart.length) {
+    showToast('Your bag is empty');
+    return;
+  }
+
+  if (!/^\d{10,15}$/.test(CONFIG.whatsapp)) {
+    showToast('Please add your WhatsApp number in CONFIG');
+    return;
+  }
+
+  const total = cart.reduce((sum, item) => sum + item.price * item.qty, 0);
+  let message = `*${CONFIG.storeName} - ORDER REQUEST*\\n`;
+  message += '------------------------------\\n';
+
+  cart.forEach(item => {
+    message += `• ${item.name} × ${item.qty} — ${money(item.price * item.qty)}\\n`;
+  });
+
+  message += '------------------------------\\n';
+  message += `*GRAND TOTAL: ${money(total)}*\\n\\n`;
+  message += 'Please confirm availability and order details.';
+
+  window.open(
+    `https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent(message)}`,
+    '_blank',
+    'noopener,noreferrer'
+  );
+}
+
+/* =========================
+   STARTUP
+========================= */
+renderFilters();
+renderProducts();
+updateCartUI();
+
+document.addEventListener('keydown', event => {
+  if (event.key === 'Escape') toggleCart(false);
+});
 </script>
-
 </body>
 </html>
