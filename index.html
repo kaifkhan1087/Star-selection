@@ -3,194 +3,316 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ELITE LUXE | Premium Collection</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    <title>ELITE LUXE | Gents & Children Wear</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    
-    <script src="https://upload-widget.cloudinary.com/global/all.js" type="text/javascript" defer></script>
-    
     <style>
-        :root { --gold: #D4AF37; --dark: #0A192F; --white: #FFFFFF; --black: #111111; }
+        :root {
+            --gold: #D4AF37;
+            --dark-navy: #0A192F;
+            --white: #FFFFFF;
+            --light-gray: #F4F4F4;
+            --black: #111111;
+        }
+
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Montserrat', sans-serif; }
-        body { background: var(--white); overflow-x: hidden; color: var(--black); }
+        body { background-color: var(--white); color: var(--black); scroll-behavior: smooth; }
 
-        /* Navigation */
-        nav { background: var(--dark); padding: 15px 8%; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; border-bottom: 2px solid var(--gold); color: white; }
-        .logo { font-family: 'Cinzel', serif; font-size: 24px; color: var(--gold); letter-spacing: 2px; }
-        .staff-link { font-size: 11px; opacity: 0.6; cursor: pointer; text-transform: uppercase; }
+        /* --- Premium Navigation --- */
+        nav {
+            background: var(--dark-navy);
+            padding: 20px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 2px solid var(--gold);
+        }
 
-        /* Admin Dashboard */
-        #admin-panel { display: none; background: #fdfdfd; padding: 40px 8%; border-bottom: 1px solid var(--gold); text-align: center; }
-        .form-group { display: flex; flex-wrap: wrap; gap: 15px; align-items: center; justify-content: center; margin-top: 20px; }
-        .form-group input, .form-group select { padding: 12px; border: 1px solid #ddd; border-radius: 4px; min-width: 180px; }
+        .logo { 
+            font-family: 'Cinzel', serif;
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--gold);
+            letter-spacing: 3px;
+        }
 
-        /* Buttons */
-        .btn { background: var(--black); color: white; border: none; padding: 12px 25px; cursor: pointer; text-transform: uppercase; font-size: 12px; transition: 0.3s; border-radius: 4px; }
-        .btn:hover { background: var(--gold); color: var(--black); }
-        .btn-save { background: var(--gold); color: black; font-weight: 700; }
-        .btn-save:disabled { background: #ccc; cursor: not-allowed; }
+        .nav-right { display: flex; align-items: center; gap: 30px; }
+        .staff-btn { 
+            font-size: 11px; 
+            text-transform: uppercase; 
+            letter-spacing: 1px; 
+            color: rgba(255,255,255,0.6); 
+            cursor: pointer;
+            border: 1px solid rgba(255,255,255,0.3);
+            padding: 5px 10px;
+            transition: 0.3s;
+        }
+        .staff-btn:hover { color: var(--gold); border-color: var(--gold); }
 
-        /* Product Grid */
-        .container { max-width: 1200px; margin: 40px auto; padding: 0 20px; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
-        .card { border: 1px solid #eee; position: relative; text-align: center; padding-bottom: 15px; background: #fff; }
-        .card img { width: 100%; height: 350px; object-fit: cover; }
-        .price { color: var(--gold); font-weight: 700; font-size: 18px; display: block; margin: 10px 0; }
+        .cart-icon { position: relative; cursor: pointer; color: var(--white); font-size: 22px; }
+        #cart-count { 
+            position: absolute; top: -10px; right: -10px; 
+            background: var(--gold); color: var(--black); 
+            font-size: 11px; font-weight: 700;
+            padding: 2px 6px; border-radius: 50%; 
+        }
 
-        /* Cart Sidebar */
-        #cart-sidebar { position: fixed; right: -100%; top: 0; width: 350px; height: 100%; background: white; z-index: 2000; transition: 0.4s; padding: 30px; box-shadow: -10px 0 30px rgba(0,0,0,0.1); }
+        /* --- Luxury Hero Section --- */
+        .hero {
+            height: 70vh;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+                        url('https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: var(--white);
+        }
+
+        .hero h1 { font-family: 'Cinzel', serif; font-size: 4rem; margin-bottom: 10px; letter-spacing: 5px; }
+        .hero p { font-size: 1.2rem; font-weight: 300; letter-spacing: 2px; color: var(--gold); }
+
+        /* --- Admin Dashboard --- */
+        #admin-panel {
+            display: none;
+            background: var(--light-gray);
+            padding: 30px;
+            margin: 20px 8%;
+            border-left: 5px solid var(--gold);
+            border-radius: 4px;
+        }
+        .admin-inputs input, .admin-inputs select {
+            padding: 12px; margin: 5px; border: 1px solid #ddd; border-radius: 4px; outline: none;
+        }
+        .btn-gold { background: var(--gold); color: var(--black); font-weight: 700; border: none; padding: 12px 25px; cursor: pointer; text-transform: uppercase; }
+
+        /* --- Product Grid --- */
+        .section-title { text-align: center; margin: 60px 0 40px; font-family: 'Cinzel', serif; font-size: 2.5rem; }
+        
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px 60px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 40px; }
+
+        .product-card {
+            background: var(--white);
+            transition: 0.4s;
+            position: relative;
+            border: 1px solid #eee;
+        }
+        .product-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+        
+        .img-container { overflow: hidden; height: 350px; }
+        .product-card img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
+        .product-card:hover img { transform: scale(1.1); }
+
+        .card-info { padding: 20px; text-align: center; }
+        .card-info h3 { font-size: 16px; margin-bottom: 10px; letter-spacing: 1px; text-transform: uppercase; }
+        .price { color: var(--gold); font-weight: 700; font-size: 20px; margin-bottom: 20px; display: block; }
+        
+        .add-to-bag {
+            background: var(--black); color: var(--white);
+            border: none; padding: 12px 0; width: 100%;
+            text-transform: uppercase; letter-spacing: 2px;
+            cursor: pointer; font-size: 12px; transition: 0.3s;
+        }
+        .add-to-bag:hover { background: var(--gold); color: var(--black); }
+
+        /* --- Footer/Contact --- */
+        .footer { background: var(--dark-navy); color: white; padding: 60px 8%; text-align: center; }
+        .footer-logo { font-family: 'Cinzel', serif; color: var(--gold); font-size: 30px; margin-bottom: 20px; }
+        .address { font-size: 14px; opacity: 0.8; line-height: 2; margin-bottom: 30px; }
+
+        /* --- Cart Sidebar --- */
+        #cart-sidebar {
+            position: fixed; right: -100%; top: 0; width: 400px; height: 100%;
+            background: var(--white); z-index: 2000; transition: 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+            padding: 40px; box-shadow: -10px 0 50px rgba(0,0,0,0.2);
+        }
         #cart-sidebar.active { right: 0; }
-        .checkout-btn { background: #25D366; color: white; width: 100%; padding: 15px; border: none; font-weight: 700; cursor: pointer; margin-top: 20px; border-radius: 5px; }
+        .cart-title { font-family: 'Cinzel', serif; font-size: 24px; border-bottom: 1px solid #eee; padding-bottom: 20px; }
+        .checkout-btn {
+            background: #25D366; color: white; width: 100%; padding: 18px;
+            border: none; font-weight: 700; cursor: pointer; font-size: 16px; margin-top: 30px;
+            display: flex; justify-content: center; align-items: center; gap: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            #cart-sidebar { width: 100%; }
+        }
     </style>
 </head>
 <body>
 
 <nav>
     <div class="logo">ELITE LUXE</div>
-    <div style="display:flex; align-items:center; gap:20px;">
-        <span class="staff-link" onclick="login()">Staff Login</span>
-        <div onclick="toggleCart()" style="cursor:pointer; position:relative;">
-            <i class="fa fa-shopping-bag" style="font-size:20px;"></i>
-            <span id="cart-count" style="position:absolute; top:-10px; right:-10px; background:var(--gold); color:black; font-size:10px; padding:2px 6px; border-radius:50%; font-weight:700;">0</span>
+    <div class="nav-right">
+        <span class="staff-btn" onclick="adminAuth()">Staff Access</span>
+        <div class="cart-icon" onclick="toggleCart()">
+            <i class="fa fa-shopping-bag"></i>
+            <span id="cart-count">0</span>
         </div>
     </div>
 </nav>
 
+<section class="hero">
+    <p>ESTABLISHED 2026</p>
+    <h1>GENTS & KIDS</h1>
+    <p>THE ART OF DRESSING WELL</p>
+</section>
+
 <div id="admin-panel">
-    <h2 style="font-family:'Cinzel';">Management Dashboard</h2>
-    <div class="form-group">
-        <input type="text" id="pName" placeholder="Product Name">
+    <h2 style="font-family:'Cinzel'; margin-bottom:20px;">Catalogue Management</h2>
+    <div class="admin-inputs">
+        <input type="text" id="pName" placeholder="Product Title">
         <input type="number" id="pPrice" placeholder="Price (₹)">
         <select id="pCat">
             <option value="Shirt">Shirt</option>
             <option value="Pant">Pant</option>
-            <option value="Kids">Kids Wear</option>
+            <option value="Coty">Coty</option>
+            <option value="Kids">Children Wear</option>
         </select>
-        <button type="button" onclick="openWidget()" class="btn">1. Upload Photo</button>
-        <input type="hidden" id="pImg">
-        <button class="btn btn-save" id="saveBtn" onclick="saveProduct()" disabled>2. Save Item</button>
+        <input type="text" id="pImg" placeholder="Direct Image Link (URL)">
+        <button class="btn-gold" onclick="addProduct()">Publish Item</button>
+        <button onclick="document.getElementById('admin-panel').style.display='none'" style="background:none; border:none; cursor:pointer; margin-left:15px;">Hide Panel</button>
     </div>
-    <p id="status" style="margin-top:10px; color:green; font-weight:600;"></p>
 </div>
 
+<h2 class="section-title">New Collection</h2>
 <div class="container">
-    <div class="grid" id="productGrid"></div>
+    <div class="grid" id="productDisplay">
+        </div>
 </div>
+
+<footer class="footer">
+    <div class="footer-logo">ELITE LUXE</div>
+    <div class="address">
+        <p>📍 Shop No. 12, Heritage Square, Main Market, Ahmedabad</p>
+        <p>📞 Order Inquiry: +91 91XXXXXXXXXX</p>
+        <p>⏰ Open Daily: 10:00 AM - 09:30 PM</p>
+    </div>
+    <div style="font-size: 12px; opacity: 0.5;">&copy; 2026 Elite Luxe Garments. All Rights Reserved.</div>
+</footer>
 
 <div id="cart-sidebar">
     <div style="display:flex; justify-content:space-between; align-items:center;">
-        <h2 style="font-family:'Cinzel';">Your Bag</h2>
-        <i class="fa fa-times" onclick="toggleCart()" style="cursor:pointer;"></i>
+        <h2 class="cart-title">YOUR BAG</h2>
+        <i class="fa fa-times" onclick="toggleCart()" style="cursor:pointer; font-size:20px;"></i>
     </div>
-    <div id="cart-list" style="margin:20px 0;"></div>
-    <h3>Total: ₹<span id="total-price">0</span></h3>
-    <button class="checkout-btn" onclick="sendOrder()">Order via WhatsApp</button>
+    <div id="cart-items" style="margin: 30px 0; overflow-y:auto; max-height:60vh;">
+        </div>
+    <div style="border-top: 1px solid #eee; padding-top: 20px;">
+        <div style="display:flex; justify-content:space-between; font-weight:700; font-size:20px;">
+            <span>Total:</span><span>₹<span id="total-price">0</span></span>
+        </div>
+        <button class="checkout-btn" onclick="checkout()">
+            <i class="fab fa-whatsapp"></i> PLACE ORDER VIA WHATSAPP
+        </button>
+    </div>
 </div>
 
 <script>
-    let products = JSON.parse(localStorage.getItem('elite_luxe_db')) || [];
+    let products = JSON.parse(localStorage.getItem('eliteLuxeData')) || [];
     let cart = [];
     let isStaff = false;
 
-    // Login function using your saved password
-    function login() {
-        if(prompt("Enter PIN:") === "786786") {
+    renderProducts();
+
+    function adminAuth() {
+        let pin = prompt("Enter Management PIN:");
+        if(pin === "786786") {
             isStaff = true;
             document.getElementById('admin-panel').style.display = 'block';
-            render();
-        }
+            renderProducts();
+        } else { alert("Unauthorized Access."); }
     }
 
-    // Cloudinary Logic
-    function openWidget() {
-        if (typeof cloudinary === 'undefined') {
-            alert("Script is still loading or blocked. Please refresh the page.");
-            return;
-        }
+    function addProduct() {
+        let name = document.getElementById('pName').value;
+        let price = document.getElementById('pPrice').value;
+        let cat = document.getElementById('pCat').value;
+        let img = document.getElementById('pImg').value;
 
-        cloudinary.openUploadWidget({
-            cloudName: 'dfjshjp8t',
-            uploadPreset: 'my_preset',
-            sources: ['local', 'camera'],
-            multiple: false
-        }, (error, result) => {
-            if (!error && result && result.event === "success") { 
-                document.getElementById('pImg').value = result.info.secure_url;
-                document.getElementById('saveBtn').disabled = false;
-                document.getElementById('status').innerText = "✅ Image Uploaded!";
-            }
-        });
-    }
-
-    function saveProduct() {
-        const name = document.getElementById('pName').value;
-        const price = document.getElementById('pPrice').value;
-        const cat = document.getElementById('pCat').value;
-        const img = document.getElementById('pImg').value;
-
-        if(!name || !price || !img) return alert("Fill all details!");
+        if(!name || !price || !img) return alert("Fill all fields.");
 
         products.push({ id: Date.now(), name, price, cat, img });
-        localStorage.setItem('elite_luxe_db', JSON.stringify(products));
-        
-        // Reset form
-        document.getElementById('pName').value = "";
-        document.getElementById('pPrice').value = "";
-        document.getElementById('saveBtn').disabled = true;
-        document.getElementById('status').innerText = "";
-        
-        render();
-        alert("Success!");
+        localStorage.setItem('eliteLuxeData', JSON.stringify(products));
+        renderProducts();
+        alert("Product added to catalogue.");
     }
 
-    function deleteItem(id) {
-        if(confirm("Delete this?")) {
+    function deleteProduct(id) {
+        if(confirm("Delete this item?")) {
             products = products.filter(p => p.id !== id);
-            localStorage.setItem('elite_luxe_db', JSON.stringify(products));
-            render();
+            localStorage.setItem('eliteLuxeData', JSON.stringify(products));
+            renderProducts();
         }
     }
 
-    function render() {
-        const grid = document.getElementById('productGrid');
-        grid.innerHTML = "";
+    function renderProducts() {
+        const display = document.getElementById('productDisplay');
+        display.innerHTML = "";
+        
+        if(products.length === 0) {
+            display.innerHTML = "<p style='text-align:center; grid-column: 1/-1;'>No products in catalogue yet.</p>";
+        }
+
         products.forEach(p => {
-            grid.innerHTML += `
-                <div class="card">
-                    ${isStaff ? `<button onclick="deleteItem(${p.id})" style="position:absolute; top:10px; left:10px; background:red; color:white; border:none; padding:5px; cursor:pointer;">X</button>` : ''}
-                    <img src="${p.img}">
-                    <div style="padding:10px;">
-                        <h3>${p.name}</h3>
-                        <span class="price">₹${p.price}</span>
-                        <button class="btn" style="width:100%" onclick="addToCart('${p.name}', ${p.price})">Add to Bag</button>
+            display.innerHTML += `
+                <div class="product-card">
+                    ${isStaff ? `<button onclick="deleteProduct(${p.id})" style="position:absolute; top:10px; left:10px; background:red; color:white; border:none; z-index:10; padding:5px; cursor:pointer;">Delete</button>` : ''}
+                    <div class="img-container">
+                        <img src="${p.img}" alt="${p.name}">
                     </div>
-                </div>`;
+                    <div class="card-info">
+                        <h3>${p.name}</h3>
+                        <p style="font-size:12px; color:#888; margin-bottom:10px;">Category: ${p.cat}</p>
+                        <span class="price">₹${p.price}</span>
+                        <button class="add-to-bag" onclick="addToCart('${p.name}', ${p.price})">Add to Bag</button>
+                    </div>
+                </div>
+            `;
         });
     }
 
-    function addToCart(n, p) { cart.push({n, p}); updateCart(); toggleCart(); }
-    function updateCart() {
-        const list = document.getElementById('cart-list');
-        let total = 0; list.innerHTML = "";
-        cart.forEach(i => {
-            total += parseInt(i.p);
-            list.innerHTML += `<p style="display:flex; justify-content:space-between"><span>${i.n}</span> <span>₹${i.p}</span></p>`;
+    function addToCart(name, price) {
+        cart.push({name, price});
+        updateCartUI();
+        toggleCart(); // Show cart when item added
+    }
+
+    function updateCartUI() {
+        document.getElementById('cart-count').innerText = cart.length;
+        const list = document.getElementById('cart-items');
+        let total = 0;
+        list.innerHTML = "";
+        cart.forEach(item => {
+            total += parseInt(item.price);
+            list.innerHTML += `
+                <div style="display:flex; justify-content:space-between; margin-bottom:15px; border-bottom:1px solid #f9f9f9; padding-bottom:10px;">
+                    <span style="font-size:14px;">${item.name}</span>
+                    <span style="font-weight:600;">₹${item.price}</span>
+                </div>`;
         });
         document.getElementById('total-price').innerText = total;
-        document.getElementById('cart-count').innerText = cart.length;
     }
 
     function toggleCart() { document.getElementById('cart-sidebar').classList.toggle('active'); }
 
-    function sendOrder() {
+    function checkout() {
+        if(cart.length === 0) return alert("Your bag is empty!");
         let phone = "91XXXXXXXXXX"; // Change to your number
-        let msg = "*NEW ORDER*%0a";
-        cart.forEach(i => { msg += `- ${i.n} (₹${i.p})%0a`; });
-        msg += `*Total: ₹${document.getElementById('total-price').innerText}*`;
-        window.open(`https://wa.me/${phone}?text=${msg}`);
+        let msg = "*PREMIUM ORDER - ELITE LUXE*%0a------------------------------%0a";
+        cart.forEach(i => { msg += `• ${i.name} - ₹${i.price}%0a`; });
+        msg += `------------------------------%0a*GRAND TOTAL: ₹${document.getElementById('total-price').innerText}*%0a%0a_Please process my order._`;
+        window.open(`https://wa.me/${phone}?text=${msg}`, '_blank');
     }
-
-    render();
 </script>
+
 </body>
 </html>
